@@ -10,12 +10,6 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type Asset struct {
-	Key      string
-	Name     string
-	Location string
-}
-
 func home(c echo.Context) error {
 	return c.Render(http.StatusOK, "index.html", nil)
 }

@@ -1,23 +1,60 @@
 <!DOCTYPE html>
 <html lang="len">
   <head>
-    <link href="/css/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/output.css" rel="stylesheet" />
     <title>Photos</title>
   </head>
-  <body class="min-h-screen bg-primary font-titillium" id="body">
-    <div
-      class="flex flex-row wrap gap-8 justify-center items-center pt-36 px-36"
-    >
-      {{ range . }}
-      <div class="flex flex-col gap-2 items-start justify-center">
-        <img
-          src="https://z-photos-bucket.s3.amazonaws.com/{{ .Key }}"
-          alt="'photo"
-          class="w-[500px] h-[500px]"
-        />
-        <p class="text-md"><span class="italic">{{ .Name }}.</span> {{ .Location }}</p>
-      </div>
-      {{ end }}
+  <body
+    class="min-h-screen w-full flex justify-center bg-primary font-titillium"
+    id="body"
+  >
+    <div id="back-button" class="absolute top-4 left-4 cursor-pointer">
+      <img
+        src="https://sticnuru.sirv.com/go-native-images/left.png"
+        alt="back-button"
+        class="w-[50px] h-[50px]"
+      />
     </div>
+    <main
+      class="w-full xl:w-3/4 max-w-[1200px] flex flex-col gap-12 justify-start items-center pt-36 px-36"
+    >
+      <div class="flex flex-col items-start justify-center w-full gap-4">
+        <h1 class="text-5xl font-medium">Photography</h1>
+        <h3 class="text-2xl self-start">
+          Growing up, I wasn't really into photos and photography. I was mainly
+          into video games and cartoons. Over time though, I began to appreciate
+          the smaller nuances in life. Tuning, fiddling, and tinkering became my
+          passion. Given how layered and detail oriented photography is, I
+          naturally gravitated to it.
+        </h3>
+      </div>
+      <div
+        class="flex flex-col xl:flex-row wrap gap-8 justify-center items-center"
+      >
+        {{ range . }}
+        <div class="flex flex-col gap-2 items-start justify-center">
+          <img
+            src="https://z-photos-bucket.s3.amazonaws.com/{{ .Key }}"
+            alt="'photo"
+            class="w-[400px] h-[400px] 2xl:w-[500px] 2xl:h-[500px]"
+          />
+          <p class="text-md">
+            <span class="italic">{{ .Name }}.</span> {{ .Location }}
+          </p>
+        </div>
+        {{ end }}
+      </div>
+    </main>
+    <script>
+      document
+        .getElementById("back-button")
+        .addEventListener("click", () => window.history.back());
+    </script>
   </body>
 </html>

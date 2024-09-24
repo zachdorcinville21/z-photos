@@ -8,7 +8,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      barlow: ["Titillium Web"],
+      titillium: ["Titillium Web"],
     },
   },
   plugins: [],

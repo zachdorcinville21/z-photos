@@ -554,12 +554,28 @@ video {
   display: none;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.left-4 {
+  left: 1rem;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
 .flex {
   display: flex;
 }
 
-.h-\[500px\] {
-  height: 500px;
+.h-\[400px\] {
+  height: 400px;
+}
+
+.h-\[50px\] {
+  height: 50px;
 }
 
 .min-h-screen {
@@ -570,20 +586,32 @@ video {
   width: 75%;
 }
 
-.w-\[500px\] {
-  width: 500px;
+.w-\[400px\] {
+  width: 400px;
+}
+
+.w-\[50px\] {
+  width: 50px;
 }
 
 .w-full {
   width: 100%;
 }
 
-.cursor-pointer {
-  cursor: pointer;
+.max-w-\[1750px\] {
+  max-width: 1750px;
 }
 
-.flex-row {
-  flex-direction: row;
+.max-w-\[1500px\] {
+  max-width: 1500px;
+}
+
+.max-w-\[1200px\] {
+  max-width: 1200px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .flex-col {
@@ -606,6 +634,10 @@ video {
   justify-content: center;
 }
 
+.gap-12 {
+  gap: 3rem;
+}
+
 .gap-2 {
   gap: 0.5rem;
 }
@@ -618,8 +650,16 @@ video {
   gap: 2rem;
 }
 
+.self-start {
+  align-self: flex-start;
+}
+
 .border-2 {
   border-width: 2px;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-black {
@@ -649,7 +689,7 @@ video {
   padding-top: 9rem;
 }
 
-.font-barlow {
+.font-titillium {
   font-family: Titillium Web;
 }
 
@@ -673,4 +713,24 @@ video {
 
 .underline {
   text-decoration-line: underline;
+}
+
+@media (min-width: 1280px) {
+  .xl\:w-3\/4 {
+    width: 75%;
+  }
+
+  .xl\:flex-row {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:h-\[500px\] {
+    height: 500px;
+  }
+
+  .\32xl\:w-\[500px\] {
+    width: 500px;
+  }
 }

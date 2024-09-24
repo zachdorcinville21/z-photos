@@ -26,6 +26,8 @@ func main() {
 	app.Renderer = t
 
 	app.GET("/", home)
+	app.GET("/photos", photos)
+	app.File("/css/output.css", "css/output.css")
 
 	app.Logger.Fatal(app.Start(":5000"))
 }

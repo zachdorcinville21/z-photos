@@ -11,7 +11,7 @@
     <title>Photos</title>
   </head>
   <body
-    class="min-h-screen w-full flex justify-center bg-primary font-titillium"
+    class="min-h-screen w-full flex justify-center bg-blue font-titillium"
     id="body"
   >
     <div id="back-button" class="absolute top-4 left-4 cursor-pointer">
@@ -22,9 +22,11 @@
       />
     </div>
     <main
-      class="w-full xl:w-3/4 max-w-[1200px] flex flex-col gap-12 justify-start items-center pt-36 px-36"
+      class="w-full xl:w-5/6 max-w-[1200px] flex flex-col gap-12 justify-start items-center py-36 px-[2rem]"
     >
-      <div class="flex flex-col items-start justify-center w-full gap-4">
+      <div
+        class="flex flex-col items-start justify-center w-full gap-4"
+      >
         <h1 class="text-5xl font-medium">Photography</h1>
         <h3 class="text-2xl self-start">
           Growing up, I wasn't really into photos and photography. I was mainly
@@ -35,14 +37,14 @@
         </h3>
       </div>
       <div
-        class="flex flex-col xl:flex-row wrap gap-8 justify-center items-center"
+        class="flex flex-col items-start gap-8 w-full"
       >
         {{ range . }}
         <div class="flex flex-col gap-2 items-start justify-center">
           <img
             src="https://z-photos-bucket.s3.amazonaws.com/{{ .Key }}"
-            alt="'photo"
-            class="w-[400px] h-[400px] 2xl:w-[500px] 2xl:h-[500px]"
+            alt="photo"
+            class="w-[400px] h-[400px] 2xl:w-[600px] 2xl:h-[600px]"
           />
           <p class="text-md">
             <span class="italic">{{ .Name }}.</span> {{ .Location }}

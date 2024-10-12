@@ -19,10 +19,12 @@ type Asset struct {
 }
 
 func GetPhotos() ([]Asset, error) {
-	envErr := godotenv.Load()
+	if _, exists := os.LookupEnv("RAILWAY_ENVIRONMENT"); exists == false {
+		envErr := godotenv.Load()
 
-	if envErr != nil {
-		log.Fatal(envErr)
+		if envErr != nil {
+			log.Fatal(envErr)
+		}
 	}
 
 	cfg, err := config.LoadDefaultConfig(

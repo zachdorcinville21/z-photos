@@ -19,7 +19,7 @@ type Asset struct {
 }
 
 func GetPhotos() ([]Asset, error) {
-	if _, exists := os.LookupEnv("RAILWAY_ENVIRONMENT"); exists == false {
+	if _, exists := os.LookupEnv("RAILWAY_ENVIRONMENT"); !exists {
 		envErr := godotenv.Load()
 
 		if envErr != nil {

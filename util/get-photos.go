@@ -3,10 +3,13 @@ package util
 import (
 	"context"
 	"log"
+	"os"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
+	"github.com/joho/godotenv"
 )
 
 type Asset struct {
@@ -16,7 +19,18 @@ type Asset struct {
 }
 
 func GetPhotos() ([]Asset, error) {
-	cfg, err := config.LoadDefaultConfig(context.Background(), config.WithSharedConfigProfile("z-dev-profile"))
+	envErr := godotenv.Load()
+
+	if envErr != nil {
+		log.Fatal(envErr)
+	}
+
+	cfg, err := config.LoadDefaultConfig(
+		context.TODO(),
+		config.WithCredentialsProvider(credentials.NewStaticCredentialsProvider(os.Getenv("AWS_ACCESS_KEY"), os.Getenv("AWS_SECRET_KEY"), "")),
+		config.WithRegion("us-east-1"),
+	)
+
 	if err != nil {
 		log.Fatal(err)
 	}
